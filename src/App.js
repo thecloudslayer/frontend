@@ -12,7 +12,15 @@ class App extends Component {
 
 
     userLookup() {
-        fetch("http://localhost:3001/users/4")
+        let header = new Headers({
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'multipart/form-data'
+        });
+        fetch("http://localhost:3001/users/1",{
+            mode: 'cors',
+            header: header
+
+        })
             .then(res => res.json())
             .then(json => {
                 var name1 = json[0].name;
