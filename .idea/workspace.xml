@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef3d0220-ca28-4a3a-a379-886912c2ca73" name="Default Changelist" comment="dockerfile seems to be in order now">
+    <list default="true" id="ef3d0220-ca28-4a3a-a379-886912c2ca73" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
@@ -94,7 +94,7 @@
       <workItem from="1569244690646" duration="4783000" />
       <workItem from="1569329787845" duration="133000" />
       <workItem from="1569330118708" duration="16000" />
-      <workItem from="1569330199566" duration="4802000" />
+      <workItem from="1569330199566" duration="6749000" />
     </task>
     <task id="LOCAL-00001" summary="First real talk to DB">
       <created>1568820576750</created>
@@ -117,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569330289602</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="figured out list items in JSX">
+      <created>1569418352756</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1569418352756</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +147,7 @@
     <MESSAGE value="First real talk to DB" />
     <MESSAGE value="Basic Read one user." />
     <MESSAGE value="dockerfile seems to be in order now" />
-    <option name="LAST_COMMIT_MESSAGE" value="dockerfile seems to be in order now" />
+    <MESSAGE value="figured out list items in JSX" />
+    <option name="LAST_COMMIT_MESSAGE" value="figured out list items in JSX" />
   </component>
 </project>

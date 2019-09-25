@@ -1,14 +1,46 @@
 import React, { Component } from "react";
+import ListGroup from 'react-bootstrap/ListGroup'
+import BootstrapTable from 'react-bootstrap-table-next';
 import logo from "./logo.svg";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = { apiResponse: "" ,
                         users:[],
                         name:"",
-                        email:""};
+                        email:"",
+            products: [
+                {
+                    id: 1,
+                    name: 'TV',
+                    'price': 1000
+                },
+                {
+                    id: 2,
+                    name: 'Mobile',
+                    'price': 500
+                },
+                {
+                    id: 3,
+                    name: 'Book',
+                    'price': 20
+                },
+            ],
+            columns: [{
+                dataField: 'id',
+                text: 'ID'
+            },
+                {
+                    dataField: 'name',
+                    text: 'username'
+                }, {
+                    dataField: 'email',
+                    text: 'email',
+                    sort: true
+                }]};
     }
 
 
@@ -90,11 +122,25 @@ class App extends Component {
                 <h1 className="App-intro">{this.state.name}</h1>
                     <h1 className="App-intro">{this.state.email}</h1>
 
+                <ListGroup>
+
+
+                </ListGroup>
                 {this.state.users.map(function(d, idx){
-                    return (<li key={idx}>{d.name}</li>)
+                    return (<ListGroup.Item key={idx}>{d.name}</ListGroup.Item>)
                 })}
 
+                <BootstrapTable
+                    striped
+                    hover
+                    keyField='id'
+                    data={ this.state.users }
+                    columns={ this.state.columns } />
             </div>
+
+
+
+
         );
     }
 }
