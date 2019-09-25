@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = { apiResponse: "" ,
+                        users:[],
                         name:"",
                         email:""};
     }
@@ -33,15 +34,27 @@ class App extends Component {
                 this.setState({email: email1})
 
                 })
+    };
+    usersLookup() {
+        let header = new Headers({
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'multipart/form-data'
+        });
+        fetch("http://localhost:3001/users",{
+            mode: 'cors',
+            header: header
+
+        })
+            .then(res => res.json())
+            .then(json => {
+                var usersList = json;
+                console.log("raw", json);
+                console.log("STRING", JSON.stringify(json));
+                this.setState({users: usersList})
 
 
-
-
-
-
-
-
-    }
+            })
+    };
 
 
 
@@ -58,6 +71,7 @@ class App extends Component {
 
     componentDidMount() {
         console.log (this.userLookup());
+        console.log(this.usersLookup());
 
 
 
@@ -65,6 +79,8 @@ class App extends Component {
     }
 
     render() {
+
+
         return (
             <div className="App">
                 <header className="App-header">
@@ -73,6 +89,10 @@ class App extends Component {
                 </header>
                 <h1 className="App-intro">{this.state.name}</h1>
                     <h1 className="App-intro">{this.state.email}</h1>
+
+                {this.state.users.map(function(d, idx){
+                    return (<li key={idx}>{d.name}</li>)
+                })}
 
             </div>
         );
