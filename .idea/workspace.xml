@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ef3d0220-ca28-4a3a-a379-886912c2ca73" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,6 +92,8 @@
       <workItem from="1569329787845" duration="133000" />
       <workItem from="1569330118708" duration="16000" />
       <workItem from="1569330199566" duration="6749000" />
+      <workItem from="1569605581971" duration="811000" />
+      <workItem from="1569609681718" duration="655000" />
     </task>
     <task id="LOCAL-00001" summary="First real talk to DB">
       <created>1568820576750</created>
