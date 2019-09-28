@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import ListGroup from 'react-bootstrap/ListGroup'
 import BootstrapTable from 'react-bootstrap-table-next';
 import logo from "./logo.svg";
+import pglogo from "./pg.svg";
+import nodelogo from "./nodelogo.svg"
+import Button from 'react-bootstrap/Button';
+
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
@@ -20,7 +23,7 @@ class App extends Component {
             },
                 {
                     dataField: 'name',
-                    text: 'username'
+                    text: 'name'
                 }, {
                     dataField: 'email',
                     text: 'email',
@@ -101,9 +104,12 @@ changeHandler = event => {
     });
 }
 
+
+
     handleSubmit(event) {
         alert('A name was submitted: ' + this.state.formControls.email.value + this.state.formControls.name.value);
         event.preventDefault();
+
         fetch('http://localhost:3001/users', {
             method: 'POST',
             mode: 'cors',
@@ -112,17 +118,25 @@ changeHandler = event => {
         }).then((res) => res.json())
             .then((data) =>  console.log(data))
             .catch((err)=>console.log(err))
+
+this.setState({ formControls: {
+        email: {
+            value: ''
+        },
+        name: {
+            value: ''
+        },
+        password: {
+            value: ''
+        }
+    }})
+
+        window.location.reload();
+
     }
-    ç
-
-    /*userLookup() {
-        fetch("http://localhost:3001/users/1")
-            .then(res => res.text())
-            .then(res => this.setState({ apiResponse: res }))
-            .catch(err => err);
 
 
-    }*/
+
 
 
 
@@ -135,16 +149,39 @@ changeHandler = event => {
 
     }
 
+    btnClick() {
+        window.open("http://localhost:3003");
+    }
     render() {
 
 
         return (
             <div className="App">
                 <header className="App-header">
+                    <container>
+                        <row>
                     <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
+                    <img src={pglogo}  alt="logo" />
+                    <img src={nodelogo} className="App-logo" alt="logo" />
+                        </row>
+                    </container>
+                    <h1 className="App-title">EnterpriseDB Demo App</h1>
+                    <Button cssClass='e-link' onClick={this.btnClick.bind(this)}>admin panel : PGadmin</Button>
+
+
                 </header>
-                <form onSubmit={this.handleSubmit}>
+                <form  onSubmit={this.handleSubmit}>
+
+                    <label>
+                        name:
+                        <input type="text"
+                               name="name"
+                               value={this.state.formControls.name.value}
+                               onChange={this.changeHandler}
+                        />
+                    </label>
+
+
                     <label>
                         email:
                     <input type="email"
@@ -153,28 +190,15 @@ changeHandler = event => {
                            onChange={this.changeHandler}
                     />
                     </label>
-                    <label>
-                        name:
-                    <input type="text"
-                           name="name"
-                           value={this.state.formControls.name.value}
-                           onChange={this.changeHandler}
-                    />
-                    </label>
-                    <input type="submit" value="Submit" />
+                    {"     "}
+
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
 
 
                 </form>
-                <h1 className="App-intro">{this.state.name}</h1>
-                    <h1 className="App-intro">{this.state.email}</h1>
 
-                <ListGroup>
-
-
-                </ListGroup>
-                {this.state.users.map(function(d, idx){
-                    return (<ListGroup.Item key={idx}>{d.name}</ListGroup.Item>)
-                })}
 
                 <BootstrapTable
                     striped

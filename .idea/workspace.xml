@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ef3d0220-ca28-4a3a-a379-886912c2ca73" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,7 +96,7 @@
       <workItem from="1569330118708" duration="16000" />
       <workItem from="1569330199566" duration="6749000" />
       <workItem from="1569605581971" duration="811000" />
-      <workItem from="1569609681718" duration="3171000" />
+      <workItem from="1569609681718" duration="10169000" />
     </task>
     <task id="LOCAL-00001" summary="First real talk to DB">
       <created>1568820576750</created>
@@ -131,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569610588151</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Friday night wrap!">
+      <created>1569632509664</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1569632509664</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +165,7 @@
     <MESSAGE value="dockerfile seems to be in order now" />
     <MESSAGE value="figured out list items in JSX" />
     <MESSAGE value="after shit show melt down" />
-    <option name="LAST_COMMIT_MESSAGE" value="after shit show melt down" />
+    <MESSAGE value="Friday night wrap!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Friday night wrap!" />
   </component>
 </project>
