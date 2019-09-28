@@ -8,27 +8,12 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 class App extends Component {
     constructor(props) {
         super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = { apiResponse: "" ,
                         users:[],
                         name:"",
                         email:"",
-            products: [
-                {
-                    id: 1,
-                    name: 'TV',
-                    'price': 1000
-                },
-                {
-                    id: 2,
-                    name: 'Mobile',
-                    'price': 500
-                },
-                {
-                    id: 3,
-                    name: 'Book',
-                    'price': 20
-                },
-            ],
+
             columns: [{
                 dataField: 'id',
                 text: 'ID'
@@ -40,8 +25,20 @@ class App extends Component {
                     dataField: 'email',
                     text: 'email',
                     sort: true
-                }]};
-    }
+                }],
+            formControls: {
+                email: {
+                    value: ''
+                },
+                name: {
+                    value: ''
+                },
+                password: {
+                    value: ''
+                }
+            }
+        }};
+
 
 
     userLookup() {
@@ -88,7 +85,35 @@ class App extends Component {
             })
     };
 
+changeHandler = event => {
 
+    const name = event.target.name;
+    const value = event.target.value;
+
+    this.setState({
+        formControls: {
+            ...this.state.formControls,
+            [name]: {
+                ...this.state.formControls[name],
+                value
+            }
+        }
+    });
+}
+
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.formControls.email.value + this.state.formControls.name.value);
+        event.preventDefault();
+        fetch('http://localhost:3001/users', {
+            method: 'POST',
+            mode: 'cors',
+            headers: { "Content-Type": "application/json" },
+            body:JSON.stringify({name: this.state.formControls.name.value, email:this.state.formControls.email.value })
+        }).then((res) => res.json())
+            .then((data) =>  console.log(data))
+            .catch((err)=>console.log(err))
+    }
+    ç
 
     /*userLookup() {
         fetch("http://localhost:3001/users/1")
@@ -119,6 +144,27 @@ class App extends Component {
                     <img src={logo} className="App-logo" alt="logo" />
                     <h1 className="App-title">Welcome to React</h1>
                 </header>
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        email:
+                    <input type="email"
+                           name="email"
+                           value={this.state.formControls.email.value}
+                           onChange={this.changeHandler}
+                    />
+                    </label>
+                    <label>
+                        name:
+                    <input type="text"
+                           name="name"
+                           value={this.state.formControls.name.value}
+                           onChange={this.changeHandler}
+                    />
+                    </label>
+                    <input type="submit" value="Submit" />
+
+
+                </form>
                 <h1 className="App-intro">{this.state.name}</h1>
                     <h1 className="App-intro">{this.state.email}</h1>
 
