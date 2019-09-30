@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef3d0220-ca28-4a3a-a379-886912c2ca73" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/scrach.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
@@ -96,7 +95,7 @@
       <workItem from="1569330199566" duration="6749000" />
       <workItem from="1569605581971" duration="811000" />
       <workItem from="1569609681718" duration="10351000" />
-      <workItem from="1569696653931" duration="8845000" />
+      <workItem from="1569696653931" duration="9868000" />
     </task>
     <task id="LOCAL-00001" summary="First real talk to DB">
       <created>1568820576750</created>
@@ -161,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569803310074</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added delete">
+      <created>1569809573753</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1569809573753</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +195,7 @@
     <MESSAGE value="Friday night wrap!" />
     <MESSAGE value="good enough for meow" />
     <MESSAGE value="added better UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="added better UI" />
+    <MESSAGE value="added delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="added delete" />
   </component>
 </project>

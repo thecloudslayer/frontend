@@ -52,7 +52,7 @@ class App extends Component {
 
 
 
-    userLookup() {
+   /* userLookup() {
         let header = new Headers({
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'multipart/form-data'
@@ -74,7 +74,7 @@ class App extends Component {
                 this.setState({email: email1})
 
                 })
-    };
+    };*/
     usersLookup() {
         let header = new Headers({
             'Access-Control-Allow-Origin': '*',
@@ -157,7 +157,7 @@ changeHandler = event => {
 
 
     componentDidMount() {
-        console.log (this.userLookup());
+       // console.log (this.userLookup());
         console.log(this.usersLookup());
 
 
