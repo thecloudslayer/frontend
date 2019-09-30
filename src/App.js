@@ -12,14 +12,18 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmitDelete = this.handleSubmitDelete.bind(this);
         this.state = { apiResponse: "" ,
                         users:[],
                         name:"",
                         email:"",
+                        id1:"",
 
             columns: [{
                 dataField: 'id',
@@ -40,11 +44,11 @@ class App extends Component {
                 name: {
                     value: ''
                 },
-                password: {
+                id1: {
                     value: ''
-                }
-            }
-        }};
+                },
+
+        }}}
 
 
 
@@ -117,23 +121,31 @@ changeHandler = event => {
         fetch('http://localhost:3001/users', {
             method: 'POST',
             mode: 'cors',
-            headers: { "Content-Type": "application/json" },
-            body:JSON.stringify({name: this.state.formControls.name.value, email:this.state.formControls.email.value })
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({name: this.state.formControls.name.value, email: this.state.formControls.email.value})
         }).then((res) => res.json())
-            .then((data) =>  console.log(data))
-            .catch((err)=>console.log(err))
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err))
 
-this.setState({ formControls: {
-        email: {
-            value: ''
-        },
-        name: {
-            value: ''
-        },
-        password: {
-            value: ''
-        }
-    }})
+        window.location.reload();
+
+    }
+
+    handleSubmitDelete(event) {
+
+        event.preventDefault();
+        console.log(this.state.formControls.id1.value);
+
+        fetch('http://localhost:3001/users/' + this.state.formControls.id1.value, {
+            method: 'DELETE',
+            mode: 'cors',
+            headers: {"Content-Type": "application/json"},
+           // body: JSON.stringify({id: this.state.formControls.id1.value})
+        }).then((res) => res.json())
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err))
+
+
 
         window.location.reload();
 
@@ -193,9 +205,7 @@ this.setState({ formControls: {
                                 onChange={this.changeHandler} />
                         </Col>
 
-                    </Form.Group>
 
-                    <Form.Group as={Row} controlId="formHorizontalPassword">
                         <Form.Label column sm={1}>
                         email:
                         </Form.Label>
@@ -217,6 +227,28 @@ this.setState({ formControls: {
 
 
                 </form>
+
+                    <form  onSubmit={this.handleSubmitDelete}>
+                        <Form.Group as={Row} controlId="formHorizontalEmail">
+
+                            <Form.Label column sm={1}>
+                                ID:
+                            </Form.Label>
+
+                            <Col sm={10} md={4}>
+                                <Form.Control type="number"
+                                              name="id1"
+                                              placeholder="ID number to delete"
+                                              size="lg"
+                                              value={this.state.formControls.id1.value}
+                                              onChange={this.changeHandler} />
+                            </Col>
+                            <Button variant="danger" type="submit">
+                                Delete
+                            </Button>
+                        </Form.Group>
+                    </form>
+
                 </Jumbotron>
 
 
