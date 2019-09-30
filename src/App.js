@@ -4,6 +4,10 @@ import logo from "./logo.svg";
 import pglogo from "./pg.svg";
 import nodelogo from "./nodelogo.svg"
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -107,7 +111,7 @@ changeHandler = event => {
 
 
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.formControls.email.value + this.state.formControls.name.value);
+
         event.preventDefault();
 
         fetch('http://localhost:3001/users', {
@@ -170,34 +174,50 @@ this.setState({ formControls: {
 
 
                 </header>
+
+
+                <Jumbotron>
                 <form  onSubmit={this.handleSubmit}>
+                    <Form.Group as={Row} controlId="formHorizontalEmail">
 
-                    <label>
+                        <Form.Label column sm={1}>
                         name:
-                        <input type="text"
-                               name="name"
-                               value={this.state.formControls.name.value}
-                               onChange={this.changeHandler}
-                        />
-                    </label>
+                        </Form.Label>
 
+                        <Col sm={10} md={4}>
+                            <Form.Control type="text"
+                                name="name"
+                                          placeholder="Enter Name Here"
+                                size="lg"
+                                value={this.state.formControls.name.value}
+                                onChange={this.changeHandler} />
+                        </Col>
 
-                    <label>
+                    </Form.Group>
+
+                    <Form.Group as={Row} controlId="formHorizontalPassword">
+                        <Form.Label column sm={1}>
                         email:
-                    <input type="email"
-                           name="email"
-                           value={this.state.formControls.email.value}
-                           onChange={this.changeHandler}
-                    />
-                    </label>
-                    {"     "}
+                        </Form.Label>
 
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
+                        <Col sm={10} md={4}>
+                            <Form.Control type="email"
+
+                                          size="lg"
+                                          name="email"
+                                          placeholder="email@somewhere.com"
+                                          value={this.state.formControls.email.value}
+                                          onChange={this.changeHandler} />
+                        </Col>
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                    </Form.Group>
+
 
 
                 </form>
+                </Jumbotron>
 
 
                 <BootstrapTable
